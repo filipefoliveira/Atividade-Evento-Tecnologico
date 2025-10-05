@@ -1,0 +1,559 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Anta&family=Audiowide&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Orbitron:wght@400..900&family=Pirata+One&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+* {
+    /* O asterisco * aplica a regra a TODOS os elementos (universal) */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluir box-sizing é altamente recomendado para layouts modernos */
+}
+
+:root {
+    /* Cores Neon */
+    --cor-neon-rosa: #ff0077;
+    
+    /* Cores de Fundo/Base e Transparência */
+    --cor-fundo-base: rgba(0, 0, 0, 0.75);
+    --cor-fundo-transparente: rgba(255, 255, 255, 0.1);
+    --cor-texto-claro: #ffffff;
+    
+    /* Cores do Gradiente (para fundos de seção) */
+    --gradiente-fundo-roxo: rgba(57, 0, 59, 0.9);
+    --gradiente-fundo-azul: rgba(0, 40, 59, 0.9);
+
+    /* Fontes */
+    --fonte-destaque: "Audiowide", sans-serif;
+    --fonte-corpo: "Orbitron", sans-serif;
+    --fonte-rodape: "Anta", sans-serif;
+}
+
+/* Formatação de textos */
+
+h2, h3{
+    font-family: var(--fonte-destaque);
+}
+
+a, p, li {
+    font-family: var(--fonte-corpo);
+}
+
+main section#sobre h2, main section#sobre h3, main section#sobre p,
+main section#sobre ul{   
+    max-width: 1100px; /* Limita a largura do texto a um tamanho confortável */ 
+    margin-left: auto; /* Garante que este bloco de texto fique centralizado */
+    margin-right: auto; /* Garante que este bloco de texto fique centralizado */
+    margin-bottom: 20px; /* Espaçamento entre os parágrafos */
+    text-align: left;
+}
+
+form section#formulario-baixo1 h3 {
+    text-align: center;
+}
+
+form section#formulario-baixo1 label {
+    font-size: 0.9em;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Formatação de seções e divisões e etc */
+
+
+body {
+    color: #ffffff;
+    display: grid;
+}
+
+header {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+header nav { 
+    z-index: 900;  /* Garante que ele fique sobre o conteúdo durante a rolagem. */
+    width: 100%; /* Garante que ele ocupe a largura total ao grudar. */
+    display: block; 
+}
+
+#cabecalho {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+}
+
+
+/* ===== MENU FIXO APÓS ROLAGEM ===== */
+
+/* estado normal */
+#menu {
+    position: relative;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* estado fixo (ativado pelo JS) */
+#menu.fixo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* mantém o estilo escuro */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: deslizarMenu 0.3s ease forwards;
+}
+
+main h2 {
+    margin-top: 10px;
+}
+
+
+/* Formatação de listas */
+
+nav ul {
+    list-style: none;
+}
+
+#lista-navegacao li {
+    display: inline-block;
+    border: 1px solid #000000;
+    margin: 10px;
+    width: 150px; /* Defina uma largura FIXA para todos os botões */
+    background-color: rgba(0, 0, 0, 0.75); 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 230, 247, 0.5);
+    margin: 10px;
+}
+
+#lista-navegacao li:hover {
+    color: var(--cor-neon-rosa);
+    box-shadow: 0 0 20px rgba(255, 0, 119, 0.8); 
+    transform: scale(1.1); /* Aumenta um pouco o campo ao passar o mouse */
+}
+
+#lista-navegacao a {
+    color: inherit; /* Garante que a cor do link venha do <li> para que a mudança de cor ocorre com o hover */
+    text-decoration: none; /* Manter a remoção do sublinhado */
+    display: block; /* O SEGREDO PARA COBRIR A ÁREA TODA E O BOTÃO DE MENU PODER SER TODO CLICÁVEL */
+    padding: 10px;  /* Move o preenchimento (padding) do <li> para o <a>. Isso garante que toda a área do botão seja o link. */
+}
+
+/* Formatação de tabelas */
+
+.tabela-agenda:hover {
+    border: 1px solid var(--cor-neon-rosa);
+    box-shadow: 0 0 20px rgba(255, 0, 119, 0.8); 
+    
+}
+
+.tabela-agenda {
+    background-color: rgba(0, 0, 0, 0.75); 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 230, 247, 0.5);
+    padding: 10px; 
+    margin: 10px auto;
+    overflow-x: auto;
+
+}
+
+
+#agenda {
+    text-align: center;
+}
+
+
+table {
+    max-width: 1100px; /* Limita a largura do texto a um tamanho confortável */ 
+    min-width: 800px;
+    height: 600px;
+    margin-left: auto; /* Garante que este bloco de texto fique centralizado */
+    margin-right: auto; /* Garante que este bloco de texto fique centralizado */
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 1px 1px 10px #000000;
+}
+
+
+th {
+    margin-left: 10px;
+    border: 1px solid #DDDDDD;
+    padding: 10px;
+    vertical-align: top;
+    font-family: var(--fonte-destaque);
+    border: 1px solid rgba(255, 0, 119, 0.8);
+}
+
+td {
+    border: 1px solid #DDDDDD;
+    padding: 10px;
+    vertical-align: center;
+    font-family: var(--fonte-corpo);
+    border: 1px solid #00e6f7;
+    border-radius: 5px;
+}
+
+
+/* Formatação de formulários */
+
+.alinhamento-formulario {
+    display: flex;
+    justify-content: center;
+    gap: 3px; /* Espaço entre os formulários (pode ajustar) */
+    max-width: 1040px; /* Limite de largura para o container dos 2 formulários */
+    margin: 0 auto; /* Centraliza o contêiner na página */
+}
+
+
+form section#formulario-topo1 {
+    max-width: 900px; 
+    width: 50%;
+    max-height: 710px;
+    background-color: rgba(0, 0, 0, 0.75); 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 230, 247, 0.5);
+    padding: 10px; 
+    margin: 10px auto; /* Centraliza o bloco na seção */
+    display: block; 
+    font-family: var(--fonte-corpo);
+    
+}
+
+
+form section#formulario-topo2 {
+    max-width: 900px; 
+    width: 50%;
+    max-height: 710px;
+    background-color: rgba(0, 0, 0, 0.75); 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 230, 247, 0.5);
+    padding: 10px; 
+    margin: 10px auto; /* Centraliza o bloco na seção */
+    display: block; 
+    font-family: var(--fonte-corpo);
+}
+
+form section#formulario-baixo1 {
+    max-width: 900px; 
+    width: 50%;
+    max-height: 710px;
+    background-color: rgba(0, 0, 0, 0.75); 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 230, 247, 0.5);
+    padding: 10px; 
+    margin: 10px auto; /* Centraliza o bloco na seção */
+    display: block; 
+    font-family: var(--fonte-corpo);
+    text-align: left;
+}
+
+
+
+form section#formulario-baixo2 {
+    max-width: 900px; 
+    width: 50%;
+    max-height: 710px;
+    background-color: rgba(0, 0, 0, 0.75); 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 230, 247, 0.5);
+    padding: 10px; 
+    margin: 10px auto; /* Centraliza o bloco na seção */
+    display: block; 
+    font-family: var(--fonte-corpo);
+}
+
+#formulario-topo1:hover, #formulario-topo2:hover, 
+#formulario-baixo1:hover, #formulario-baixo2:hover {
+    border-color: var(--cor-neon-rosa); /* Muda a cor da borda para Rosa */
+    box-shadow: 0 0 8px rgba(255, 0, 119, 0.8); /* Aplica um brilho neon Rosa */
+}
+
+section#inscricao input[type="text"],
+section#inscricao input[type="email"],
+section#inscricao input[type="tel"],
+section#inscricao select,
+section#inscricao textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid #00e6f7;
+    border-radius: 5px;
+    outline: none; /* Remove a borda padrão no foco e aplica um brilho */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: var(--fonte-corpo);
+}
+
+section#inscricao textarea {
+    min-height: 230px;
+}
+
+/* Efeito de Foco (quando o usuário clica para digitar) */
+section#inscricao input:focus,
+section#inscricao select:focus,
+section#inscricao textarea:focus {
+    border-color: var(--cor-neon-rosa); /* Muda a cor da borda para Rosa */
+    box-shadow: 0 0 8px rgba(255, 0, 119, 0.8); /* Aplica um brilho neon Rosa */
+}
+
+section#inscricao select#marketing {
+    background-color: rgba(59, 58, 58, 0.75);
+}
+
+section#formulario-topo2 select {
+    background-color: rgba(59, 58, 58, 0.75);
+}
+
+section#inscricao input[type="checkbox"] {
+    justify-content: left;
+}
+
+button {
+    border: 1px solid #000000;
+    color: #ffffff;
+    padding: 25px;
+    max-width: 550px;
+    height: auto;
+    font-family: var(--fonte-destaque);
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.75); 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 230, 247, 0.5);
+}
+
+button:hover {
+    transform: scale(1.1); /* Aumenta um pouco o campo ao passar o mouse */
+    border-color: var(--cor-neon-rosa); /* Muda a cor da borda para Rosa */
+    box-shadow: 0 0 8px rgba(255, 0, 119, 0.8); /* Aplica um brilho neon Rosa */
+    background-color: var(--cor-neon-rosa);
+}
+
+
+/* Formatação de fundos */
+
+header {
+    background-image: linear-gradient(to bottom, transparent, rgba(57, 0, 59, 0.9)),url('../img/fundo-navegacao-editado.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; /* Centraliza a imagem na tela */
+    background-size: cover; /* Faz a imagem cobrir toda a área do elemento */
+    margin: 0;
+    padding: 0;
+}
+
+main section#sobre {
+    border-top: 1px solid transparent;
+    border-color: rgba(57, 0, 59, 0.9);
+    background-image: linear-gradient(to top, transparent, rgba(57, 0, 59, 0.9)),  linear-gradient(to bottom, transparent, rgba(0, 40, 59, 0.9)), url('../img/fundo-sobre-evento.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; /* Centraliza a imagem na tela */
+    background-size: cover; /* Faz a imagem cobrir toda a área do elemento */
+    margin: 0;
+    padding: 0;
+    min-height: 80vh; 
+    width: 100%;
+    padding: 5vh 8vw;
+    display: flex;
+    flex-direction: column; /* Coloca os elementos internos (p, h2, ul) em uma coluna */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    text-align: center;
+}
+
+main section#agenda {
+    border-top: 1px solid transparent;
+    border-color: rgba(0, 40, 59, 0.9);
+    background-image: linear-gradient(to top, transparent, rgba(0, 40, 59, 0.9)),  linear-gradient(to bottom, transparent, rgba(57, 0, 59, 0.9)), url('../img/fundo-agenda.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; /* Centraliza a imagem na tela */
+    background-size: cover; /* Faz a imagem cobrir toda a área do elemento */
+    margin: 0;
+    padding: 0;
+    min-height: 80vh; 
+    width: 100%;
+    padding: 5vh 8vw;
+    display: flex;
+    flex-direction: column; /* Coloca os elementos internos (p, h2, ul) em uma coluna */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    text-align: center; 
+}
+
+main section#palestrantes {
+    border-top: 1px solid transparent;
+    border-color: rgba(57, 0, 59, 0.9);
+    background-image: linear-gradient(to top, transparent, rgba(57, 0, 59, 0.9)),  linear-gradient(to bottom, transparent, rgba(0, 40, 59, 0.9)), url('../img/fundo-palestrantes.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; /* Centraliza a imagem na tela */
+    background-size: cover; /* Faz a imagem cobrir toda a área do elemento */
+    margin: 0;
+    padding: 0;
+    min-height: 80vh; 
+    width: 100%;
+    padding: 5vh 8vw;
+    display: flex;
+    flex-direction: column; /* Coloca os elementos internos (p, h2, ul) em uma coluna */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    text-align: center;
+}
+
+main section#inscricao {
+    border-top: 1px solid transparent;
+    border-color: rgba(0, 40, 59, 0.9);
+    background-image: linear-gradient(to top, transparent, rgba(0, 40, 59, 0.9)),  linear-gradient(to bottom, transparent, rgba(57, 0, 59, 0.9)), url('../img/fundo-inscricao.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; /* Centraliza a imagem na tela */
+    background-size: cover; /* Faz a imagem cobrir toda a área do elemento */
+    margin: 0;
+    padding: 0;
+    min-height: 80vh; 
+    width: 100%;
+    padding: 5vh 8vw;
+    display: flex;
+    flex-direction: column; /* Coloca os elementos internos (p, h2, ul) em uma coluna */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    text-align: center;
+}
+
+footer {
+    border-top: 1px solid transparent;
+    border-color: rgba(57, 0, 59, 0.9);
+    background-image: linear-gradient(to top, transparent, rgba(57, 0, 59, 0.9)),  linear-gradient(to bottom, transparent, rgba(0, 40, 59, 0.9)), url('../img/fundo-rodape.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; /* Centraliza a imagem na tela */
+    background-size: cover; /* Faz a imagem cobrir toda a área do elemento */
+}
+
+/* Formatação de imagens */
+#cabecalho img {
+    filter: drop-shadow(0 0 10px #fff) drop-shadow(0 0 40px var(--cor-neon-rosa)); /* primeiro drop é para brilho interno e o segundo para brilho externo trazendo um efeito de profundidade para a logo */
+    max-width: 300px;
+}
+
+.alinhamento-palestrantes {
+    display: flex;
+    justify-content: center;
+    gap: 3px; 
+    max-width: 1540px; 
+    margin: 0 auto; 
+}
+
+.alinhamento-palestrantes > div {
+  flex: 1 1 45%;
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.3s;
+}
+
+.alinhamento-palestrantes > div:hover {
+  transform: scale(1.03);
+}
+
+
+#domingos, #wagner, #deborah, #juracy {
+    border: 1px solid #000000;
+    border-radius: 10%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.75); 
+}
+
+#domingos img, #wagner img, #deborah img, #juracy img{
+    border: 2px solid #000000;
+    border-radius: 10%;
+    box-shadow: 0 0 20px rgba(0, 230, 247, 0.5);
+    transition: box-shadow 0s ease-in-out, border-color 0.3s ease-in-out; /* transição para suavizar a mudança da sombra ao passar o mouse */
+}
+
+#domingos:hover, #wagner:hover, #deborah:hover, #juracy:hover{
+    border: 1px solid var(--cor-neon-rosa);
+    box-shadow: 0 0 20px rgba(255, 0, 119, 0.8); 
+    
+}
+
+#domingos:hover img, #wagner:hover img, #deborah:hover img, #juracy:hover  img{
+    border: 1px solid var(--cor-neon-rosa);
+    box-shadow: 0 0 20px rgba(255, 0, 119, 0.8); 
+    
+}
+
+footer.rodape-imagens img {
+    vertical-align: middle;
+}
+
+#rodape-texto {
+    display: block; 
+    text-align: center; 
+    margin-top: 10px; 
+    color: #ffffff; 
+    font-family: var(--fonte-rodape); 
+    font-size: 0.9em;
+}
+
+/* MEDIA QUERIES PARA RESPONSIVIDADE (Celular e Tablet) */
+@media screen and (max-width: 768px) {
+    
+    /* Menu de Navegação */
+    #lista-navegacao {
+        /* Quebra o menu em blocos verticais */
+        display: block; 
+    }
+    
+    #lista-navegacao li {
+        display: block;
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    /* Formulário (Quebra de colunas) */
+    .alinhamento-formulario {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        /* Garante que ocupe a largura total */
+        max-width: 90%; 
+    }
+
+    form section {
+        width: 100%; 
+        max-width: none;
+        margin: 10px auto;
+    }
+
+    /* Cards de Palestrantes (Quebra para 1 coluna) */
+    .alinhamento-palestrantes {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .alinhamento-palestrantes > div {
+        /* Ocupa 90% da largura da tela */
+        flex: 1 1 90%; 
+        max-width: 90%;
+    }
+    
+    /* Botão de Envio */
+    button {
+        width: 90%;
+        padding: 15px;
+    }
+}
